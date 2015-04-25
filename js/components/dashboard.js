@@ -1,4 +1,5 @@
 var React = require('react-native');
+var Profile = require('./profile');
 var {
   StyleSheet,
   Text,
@@ -11,10 +12,6 @@ var {
 class Dashboard extends React.Component {
   render() {
     return <View style={styles.container}>
-      <Image
-        source={{uri: this.props.userInfo.avatar_url}}
-        style={styles.image}>
-      </Image>
 
       <TouchableHighlight
         onPress={this.goToProfile.bind(this)}
@@ -39,7 +36,11 @@ class Dashboard extends React.Component {
     </View>
   }
   goToProfile() {
-
+    this.props.navigator.push({
+      title: 'Profile',
+      component: Profile,
+      passProps: {userInfo: this.props.userInfo}
+    });
   }
   goToRepos() {
 
@@ -82,4 +83,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = Dashboard
+module.exports = Dashboard;

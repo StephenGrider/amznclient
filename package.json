@@ -6,6 +6,8 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "ampersand-fetch": "^0.1.1",
+    "ampersand-state": "^4.5.3",
     "react-native": "^0.4.0",
     "react-native-side-menu": "^0.2.3"
   }

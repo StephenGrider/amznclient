@@ -1,12 +1,7 @@
 var React = require('react-native');
-var Main = require('./js/components/main');
-var {
-  AppRegistry,
-  StyleSheet,
-  NavigatorIOS,
-  Text,
-  View,
-} = React;
+var Main = require('./js/main');
+
+var { AppRegistry, StyleSheet } = React;
 
 var styles = StyleSheet.create({
   container:{
@@ -18,13 +13,7 @@ var styles = StyleSheet.create({
 class amznclient extends React.Component{
   render() {
     return (
-      <NavigatorIOS
-        style={styles.container}
-        initialRoute= {{
-          title: 'Github NoteTaker',
-          component: Main
-        }}
-      />
+      <Main />
     );
   }
 };

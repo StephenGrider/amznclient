@@ -18,5 +18,4 @@ class amznclient extends React.Component{
   }
 };
 
-
 AppRegistry.registerComponent('amznclient', () => amznclient);

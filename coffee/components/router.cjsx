@@ -1,11 +1,17 @@
 React = require('react-native')
-{ StyleSheet, TabBarIOS, Text, View } = React
+List = require('./list/list')
+{ TouchableHighlight, StyleSheet, TabBarIOS, Text, View, NavigatorIOS } = React
 
 module.exports = React.createClass
   getInitialState: ->
-    selectedTab: 'redTab',
-    notifCount: 0,
-    presses: 0,
+    setTimeout =>
+      @count++
+    , 1000
+
+    selectedTab: 'redTab'
+    notifCount: 0
+    presses: 0
+    count: 0
 
   showBlueTab: ->
     @setState
@@ -14,7 +20,7 @@ module.exports = React.createClass
   showHistory: ->
     @setState
       selectedTab: 'redTab'
-      notifCount: @state.notifCount + 1,
+      notifCount: @state.notifCount + 1
 
   showGreenTab: ->
     @setState
@@ -22,10 +28,13 @@ module.exports = React.createClass
       presses: @state.presses + 1
 
   _renderContent: (color, pageText) ->
-    <View style={[styles.tabContent, {backgroundColor: color}]}>
-      <Text style={styles.tabText}>{pageText}</Text>
-      <Text style={styles.tabText}>{@state.presses} re-renders of the More tab</Text>
-    </View>
+    <NavigatorIOS
+      style={styles.container}
+      initialRoute= {{
+        title: 'Github NoteTaker'
+        component: List
+      }}>
+    </NavigatorIOS>
 
   render: ->
     <TabBarIOS>
@@ -38,7 +47,7 @@ module.exports = React.createClass
 
       <TabBarIOS.Item
         systemIcon="history"
-        badge={if @state.notifCount > 0 then @state.notifCount else undefined}
+        badge={ @state.notifCount if @state.notifCount > 0 }
         selected={@state.selectedTab == 'redTab'}
         onPress={@showHistory}>
         {@_renderContent('#783E33', 'Red Tab')}
@@ -46,8 +55,8 @@ module.exports = React.createClass
 
       <TabBarIOS.Item
         systemIcon="more"
-        selected={@state.selectedTab == 'greenTab'}
-        onPress={@showGreenTab}>
+        selected={ @state.selectedTab == 'greenTab' }
+        onPress={ @showGreenTab }>
         {@_renderContent('#21551C', 'Green Tab')}
       </TabBarIOS.Item>
     </TabBarIOS>
@@ -59,3 +68,5 @@ styles = StyleSheet.create
   tabText:
     color: 'white'
     margin: 50
+  container:
+    flex: 1

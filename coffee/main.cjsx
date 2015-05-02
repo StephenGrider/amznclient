@@ -1,16 +1,14 @@
 React = require('react-native')
 SideMenu = require('react-native-side-menu')
-Menu = require('./components/menu')
+Router = require('./components/router')
 
 { View, NavigatorIOS, StyleSheet } = React
 
-class Main extends React.Component
+module.exports = class Main extends React.Component
   render: ->
-    <Menu />
+    <Router />
 
 styles = StyleSheet.create
   container:
     flex: 1,
     backgroundColor: '#111111'
-
-module.exports = Main

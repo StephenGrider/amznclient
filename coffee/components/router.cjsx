@@ -1,12 +1,14 @@
 React = require('react-native')
 List = require('./list/list')
+ItemStore = require('./../stores/item')
 { TouchableHighlight, StyleSheet, TabBarIOS, Text, View, NavigatorIOS } = React
 
 module.exports = React.createClass
   getInitialState: ->
-    setTimeout =>
-      @count++
+    setTimeout ->
+      ItemStore.fetchItems()
     , 1000
+
 
     selectedTab: 'redTab'
     notifCount: 0

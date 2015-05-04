@@ -9,7 +9,6 @@ module.exports = React.createClass
       ItemStore.fetchItems()
     , 1000
 
-
     selectedTab: 'redTab'
     notifCount: 0
     presses: 0

@@ -1,6 +1,7 @@
 _ = require('underscore')
 uuid = require('uuid')
 AsyncStorage = require('react-native').AsyncStorage
+fetch = require('fetch')
 
 {UUID_STORAGE_KEY, API_ROOT_URL} = require('./../constants')
 

@@ -1,5 +1,4 @@
 jest.autoMockOff()
-jest.dontMock './../store.cjsx'
 Deferred = require('deferred')
 jest.autoMockOn()
 
@@ -11,11 +10,10 @@ describe 'ItemStore', ->
     jest.setMock('uuid', {})
     jest.setMock 'react-native',
       AsyncStorage:
-        getItem: -> deferred
+        getItem: -> deferred.promise()
 
-    StoreClass = require.requireActual './../store.cjsx'
-
-    store = new StoreClass()
+    StoreClass = require.requireActual './../coffee/stores/store.cjsx'
+    store = new StoreClass
 
   describe '#constructor', ->
     describe 'checks storage for a uuid', ->

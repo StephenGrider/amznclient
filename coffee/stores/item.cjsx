@@ -1,5 +1,4 @@
 Store = require('./store')
-# ee = require('event-emitter')
 
 class ItemStore extends Store
   itemsUrl: '/items'

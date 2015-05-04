@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh",
     "test": "jest",
+    "testd": "node-debug --nodejs --harmony ./node_modules/jest-cli/bin/jest.js --runInBand",
     "c": "cjsx -wbco js/ coffee/"
   },
   "dependencies": {
@@ -21,7 +22,7 @@
     "coffee-react": "^3.1.0",
     "coffee-script": "^1.9.2",
     "deferred": "^0.7.2",
-    "jest-cli": "^0.4.0"
+    "jest-cli": "*"
   },
   "jest": {
     "scriptPreprocessor": "preprocessor.js",

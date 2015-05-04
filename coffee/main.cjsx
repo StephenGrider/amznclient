@@ -1,5 +1,4 @@
 React = require('react-native')
-SideMenu = require('react-native-side-menu')
 Router = require('./components/router')
 
 { View, NavigatorIOS, StyleSheet } = React

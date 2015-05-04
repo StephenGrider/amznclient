@@ -1,5 +1,5 @@
 jest.autoMockOff()
-jest.dontMock './../../coffee/stores/store.cjsx'
+jest.dontMock './../store.cjsx'
 Deferred = require('deferred')
 jest.autoMockOn()
 
@@ -13,7 +13,8 @@ describe 'ItemStore', ->
       AsyncStorage:
         getItem: -> deferred
 
-    StoreClass = require './../../coffee/stores/store.cjsx'
+    StoreClass = require.requireActual './../store.cjsx'
+
     store = new StoreClass()
 
   describe '#constructor', ->

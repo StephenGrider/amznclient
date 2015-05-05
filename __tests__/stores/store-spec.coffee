@@ -20,11 +20,11 @@ describe 'ItemStore', ->
         setItem: setMock = jest.genMockFunction()
 
     # Constants
-    jest.setMock './../coffee/constants',
+    jest.setMock './../../coffee/constants',
       API_ROOT_URL: 'api_url'
       UUID_STORAGE_KEY: 'storage key'
 
-    StoreClass = require.requireActual './../coffee/stores/store.cjsx'
+    StoreClass = require.requireActual './../../coffee/stores/store.cjsx'
     store = new StoreClass
 
   describe '#constructor', ->
@@ -55,7 +55,7 @@ describe 'ItemStore', ->
     beforeEach ->
       fetchMock = require('fetch')
 
-      StoreClass = require.requireActual './../coffee/stores/store.cjsx'
+      StoreClass = require.requireActual './../../coffee/stores/store.cjsx'
       store = new StoreClass
 
       deferred.resolve('apiKey')

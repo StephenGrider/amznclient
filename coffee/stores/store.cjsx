@@ -25,5 +25,4 @@ class Store
     @apiKey = uuid()
     AsyncStorage.setItem(UUID_STORAGE_KEY, @apiKey)
 
-
 module.exports = Store
